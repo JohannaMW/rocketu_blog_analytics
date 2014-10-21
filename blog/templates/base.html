@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -28,21 +29,41 @@
                 </div>
 
                 <div class="col-md-2">
-                    <div>Blog tags go here!</div>
-                </div>
+
+        <h3>Checkout our Tags!</h3>
+                    {% for tag in tags %}
+        <p><a href ="{% url 'post_list' tag.id %}">{{ tag.name }} </a>({{ tag.posts.count }})</p>
+                    {% endfor %}
+
+    </div>
+
             </div>
 
             <hr>
 
             <div class="row">
-                <div class="col-md-12">Latest blog post goes here!</div>
+                <div class="col-md-12"><div class="row">
+    <div class="col-md-6 well">
+        <h3>Checkout our latest post!</h3>
+        <h4>{{ latest_post.title }}</h4>
+</div>
+    <div class="col-md-6 well">
+        {% for date in date_list %}
+        {{ date }}
+        {% endfor %}
+</div>
+
+                </div>
             </div>
 
             <hr>
 
             <div class="footer">
-                <p>&copy; My Blog 2014</p>
+<img style = "width :100px!important; display:inline!important;" src="{{ image.url }}">
+                <p>&copy; Johannas Blog 2014</p>
+
             </div>
+        </div>
         </div>
     </body>
 </html>

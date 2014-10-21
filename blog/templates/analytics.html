@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Analyse!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for page in pages %}
+               <div class="row"><div class="col-md-8"><a href ="{%  url 'page' page.id %}">{{ page.url }}</a></div><div class="col-md-4"> {{ page.views.count }}</div></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

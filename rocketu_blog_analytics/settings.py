@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'localflavor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +49,26 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'analytics.middleware.LocationMiddleware',
+    'analytics.middleware.PageViewMiddleware'
+
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "blog.context_processors.latest_post",
+    "blog.context_processors.random_ad",
+    "blog.context_processors.tag_post_list",
+    "analytics.context_processors.location",
+    "analytics.context_processors.analytics",
+
+    #"blog.context_processors.post_month"
 )
 
 ROOT_URLCONF = 'rocketu_blog_analytics.urls'
@@ -83,6 +104,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "static", *MEDIA_URL.strip("/").split("/"))
 
 try:
     from local_settings import *
