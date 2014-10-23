@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^posts/(\d+)/$', 'blog.views.post_list', name='post_list'),
     url(r'^analytics/$', TemplateView.as_view(template_name='analytics.html'), name='analytics'),
     url(r'^page/(\d+)/$', 'blog.views.page_view', name='page'),
+    url(r'^error/$', 'blog.views.error', name='error'),
+
 )
 
 if settings.DEBUG:
