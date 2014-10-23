@@ -63,7 +63,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "blog.context_processors.latest_post",
-    "blog.context_processors.random_ad",
+   # "blog.context_processors.random_ad",
     "blog.context_processors.tag_post_list",
     "analytics.context_processors.location",
     "analytics.context_processors.analytics",

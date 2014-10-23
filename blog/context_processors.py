@@ -13,17 +13,17 @@ def tag_post_list(request):
         'tags':tags,
     }
 
-def random_ad(request):
-    images = AdImage.objects.all()
-    for image in images:
-        image.state = dict(US_STATES)[image.state]
-        if image.state == request.location['region']:
-            print image.url
-            print image.image
-            return {
-                'image_url':image.url,
-                'image':image.image
-            }
+# def random_ad(request):
+#     images = AdImage.objects.all()
+#     for image in images:
+#         image.state = dict(US_STATES)[image.state]
+#         if image.state == request.location['region']:
+#             print image.url
+#             print image.image
+#             return {
+#                 'image_url':image.url,
+#                 'image':image.image
+#             }
 
 
 # def post_month(request):
